@@ -66,7 +66,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 alias pico='edit'
 alias spico='sedit'
-alias nano='edit'
+#alias nano='edit'
 alias snano='sedit'
 alias vim='nvim'
 
@@ -637,8 +637,6 @@ eval "$(zoxide init bash)"
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
 export PYENV_ROOT="$HOME/.pyenv"
