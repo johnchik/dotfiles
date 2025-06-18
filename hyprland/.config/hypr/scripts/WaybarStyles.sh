@@ -2,8 +2,6 @@
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
 # Script for waybar styles
 
-set -x 
-
 IFS=$'\n\t'
 
 # Define directories
@@ -11,6 +9,7 @@ waybar_styles="$HOME/.config/waybar/style"
 waybar_style="$HOME/.config/waybar/style.css"
 SCRIPTSDIR="$HOME/.config/hypr/scripts"
 rofi_config="$HOME/.config/rofi/config-waybar-style.rasi"
+msg=' 🎌 NOTE: Some waybar STYLES NOT fully compatible with some LAYOUTS'
 
 # Function to display menu options
 menu() {
@@ -19,7 +18,7 @@ menu() {
         if [ -f "$waybar_styles/$file" ]; then
             options+=("$(basename "$file" .css)")
         fi
-    done < <(find -L "$waybar_styles" -maxdepth 1 -type f -name '*.css' -exec basename {} \; | sort)
+    done < <(find -L "$waybar_styles" -maxdepth 1 -type f -name '*.css' -exec basename {} \; | sort )
     
     printf '%s\n' "${options[@]}"
 }
@@ -32,7 +31,7 @@ apply_style() {
 
 # Main function
 main() {
-    choice=$(menu | rofi -i -dmenu -config "$rofi_config")
+    choice=$(menu | rofi -i -dmenu -config "$rofi_config" -mesg "$msg")
 
     if [[ -z "$choice" ]]; then
         echo "No option selected. Exiting."

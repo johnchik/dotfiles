@@ -650,3 +650,13 @@ if [ -f '/home/johnchik/google-cloud-sdk/path.bash.inc' ]; then . '/home/johnchi
 if [ -f '/home/johnchik/google-cloud-sdk/completion.bash.inc' ]; then . '/home/johnchik/google-cloud-sdk/completion.bash.inc'; fi
 export PATH=$HOME/.local/bin:$PATH
 
+export TERM=xterm
+
+alias nvidia-smi="watch -d -n 0.5 nvidia-smi"
+eval "$(thefuck --alias)"
+
+export DIRENV_LOG_FORMAT=""
+eval "$(direnv hook bash)"
+
+alias code='code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime'
+
